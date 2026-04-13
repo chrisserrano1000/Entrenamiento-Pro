@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PhysioTrain | Pro Team</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        body { background-color: #0a0a0a; color: #ffffff; font-family: 'Inter', sans-serif; overflow-x: hidden; }
+        .page-section { display: none; min-height: 100vh; padding-top: 100px; }
+        .page-section.active { display: block; animation: fadeIn 0.4s ease; }
+        .tab-content { display: none; }
+        .tab-content.active { display: block; animation: slideUp 0.3s ease; }
+        .nav-link.active { color: #c00000; border-bottom: 2px solid #c00000; }
+        .service-btn.active { background-color: #c00000; color: white; }
+        @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+        @keyframes slideUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+    </style>
+</head>
+<body>
+
+    <nav class="fixed w-full z-50 bg-black/95 border-b border-white/10 p-4">
+        <div class="max-w-7xl mx-auto flex justify-between items-center">
+            <h1 class="text-xl font-black italic">PHYSIO<span class="text-red-600">TRAIN</span></h1>
+            <div class="flex space-x-6 text-[10px] uppercase font-bold tracking-widest">
+                <button onclick="showPage('inicio')" class="nav-link active pb-1">Inicio / Perfiles</button>
+                <button onclick="showPage('servicios')" class="nav-link pb-1">Servicios e Info</button>
+                <button onclick="showPage('tienda')" class="nav-link pb-1">Creatina</button>
+            </div>
+        </div>
+    </nav>
+
+    <section id="inicio" class="page-section active px-6">
+        <div class="max-w-6xl mx-auto">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl md:text-6xl font-black italic mb-4 uppercase">Nuestro <span class="text-red-600">Equipo</span></h2>
+                <p class="text-gray-500 tracking-[0.3em] text-xs">FISIOTERAPIA & COACHING DE ALTO NIVEL</p>
+            </div>
+            
+            <div class="grid md:grid-cols-2 gap-10">
+                <div class="bg-zinc-900/50 p-8 rounded-2xl border border-white/5 text-center">
+                    <div class="w-32 h-32 bg-zinc-800 rounded-full mx-auto mb-6 border-2 border-red-600 flex items-center justify-center text-4xl">
+                        <i class="fas fa-user-md"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold mb-2">Tu Nombre</h3>
+                    <p class="text-red-600 font-bold text-xs uppercase mb-4 tracking-widest">Fisioterapeuta • Kinesiólogo • Coach</p>
+                    <p class="text-gray-400 text-sm leading-relaxed">Especialista en rehabilitar lesiones mediante el movimiento y optimizar el rendimiento atlético desde la biomecánica.</p>
+                </div>
+
+                <div class="bg-zinc-900/50 p-8 rounded-2xl border border-white/5 text-center">
+                    <div class="w-32 h-32 bg-zinc-800 rounded-full mx-auto mb-6 border-2 border-zinc-600 flex items-center justify-center text-4xl">
+                        <i class="fas fa-dumbbell"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold mb-2">Compañero Coach</h3>
+                    <p class="text-zinc-400 font-bold text-xs uppercase mb-4 tracking-widest">Coach Especialista • Suplementación</p>
+                    <p class="text-gray-400 text-sm leading-relaxed">Experto en entrenamiento de fuerza y optimización metabólica. Responsable de nuestra línea de suplementación premium.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="servicios" class="page-section px-6">
+        <div class="max-w-6xl mx-auto">
+            <h3 class="text-3xl font-black uppercase italic mb-10 text-center text-red-600">Servicios e Información</h3>
+            
+            <div class="flex flex-wrap justify-center gap-2 mb-12">
+                <button onclick="showTab('adulto')" class="service-btn active px-6 py-2 border border-white/10 text-[10px] font-bold uppercase rounded-full">Salud Adulto Mayor</button>
+                <button onclick="showTab('pliometria')" class="service-btn px-6 py-2 border border-white/10 text-[10px] font-bold uppercase rounded-full">Pliometría</button>
+                <button onclick="showTab('musculacion')" class="service-btn px-6 py-2 border border-white/10 text-[10px] font-bold uppercase rounded-full">Musculación</button>
+                <button onclick="showTab('rehabilitacion')" class="service-btn px-6 py-2 border border-white/10 text-[10px] font-bold uppercase rounded-full">Rehabilitación</button>
+            </div>
+
+            <div id="adulto" class="tab-content active bg-zinc-900/30 p-8 rounded-2xl border border-white/5">
+                <div class="grid md:grid-cols-2 gap-8 items-center">
+                    <img src="https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=500" class="rounded-lg grayscale">
+                    <div>
+                        <h4 class="text-xl font-bold mb-4 uppercase underline decoration-red-600">Preservación Salud Física</h4>
+                        <p class="text-gray-400 text-sm">Entrenamiento de fuerza enfocado en longevidad y autonomía. Protegemos tu futuro a través del movimiento seguro.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div id="pliometria" class="tab-content bg-zinc-900/30 p-8 rounded-2xl border border-white/5">
+                <div class="grid md:grid-cols-2 gap-8 items-center">
+                    <img src="https://images.unsplash.com/photo-1534438327276-14e5300c3a48?w=500" class="rounded-lg grayscale">
+                    <div>
+                        <h4 class="text-xl font-bold mb-4 uppercase underline decoration-red-600">Entrenamiento Pliométrico</h4>
+                        <p class="text-gray-400 text-sm">Máxima potencia explosiva para deportistas. Optimizamos tu salto, velocidad y reactividad atlética.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div id="musculacion" class="tab-content bg-zinc-900/30 p-8 rounded-2xl border border-white/5">
+                <div class="grid md:grid-cols-2 gap-8 items-center">
+                    <img src="https://images.unsplash.com/photo-1581009146145-b5ef03a74010?w=500" class="rounded-lg grayscale">
+                    <div>
+                        <h4 class="text-xl font-bold mb-4 uppercase underline decoration-red-600">Hipertrofia & Musculación</h4>
+                        <p class="text-gray-400 text-sm">Ganancia de masa muscular inteligente. Estética basada en ciencia y biomecánica clínica.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div id="rehabilitacion" class="tab-content bg-zinc-900/30 p-8 rounded-2xl border border-white/5">
+                <div class="grid md:grid-cols-2 gap-8 items-center">
+                    <img src="https://images.unsplash.com/photo-1576091160550-2173dba999ef?w=500" class="rounded-lg grayscale">
+                    <div>
+                        <h4 class="text-xl font-bold mb-4 uppercase underline decoration-red-600">Rehabilitación Online</h4>
+                        <p class="text-gray-400 text-sm">Readaptación deportiva y tratamiento de lesiones. Volverás más fuerte de lo que estabas.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="tienda" class="page-section px-6">
+        <div class="max-w-4xl mx-auto text-center">
+            <h3 class="text-4xl font-black italic mb-8">CREATINA <span class="text-red-600">PURE PRO</span></h3>
+            <div class="bg-zinc-900 p-12 rounded-3xl border border-red-600/20">
+                <i class="fas fa-bolt text-5xl text-red-600 mb-6"></i>
+                <p class="text-gray-400 mb-8">El suplemento de mi compañero. Máxima pureza para potenciar tu fuerza y recuperación. El combustible que tu entrenamiento necesita.</p>
+                <a href="https://wa.me/TUNUMERO" class="bg-red-600 px-10 py-4 rounded-full font-bold uppercase text-xs tracking-widest">Consultar Pedido</a>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        // Lógica para cambiar de PÁGINA principal
+        function showPage(pageId) {
+            document.querySelectorAll('.page-section').forEach(p => p.classList.remove('active'));
+            document.querySelectorAll('.nav-link').forEach(l => l.classList.remove('active'));
+            document.getElementById(pageId).classList.add('active');
+            event.currentTarget.classList.add('active');
+        }
+
+        // Lógica para cambiar de SUB-APARTADO en servicios
+        function showTab(tabId) {
+            document.querySelectorAll('.tab-content').forEach(t => t.classList.remove('active'));
+            document.querySelectorAll('.service-btn').forEach(b => b.classList.remove('active'));
+            document.getElementById(tabId).classList.add('active');
+            event.currentTarget.classList.add('active');
+        }
+    </script>
+</body>
+</html>
