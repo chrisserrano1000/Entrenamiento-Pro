@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PhysioTrain | Salud & Performance</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,900;1,900&family=Poppins:wght@300;400;700&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --blue-main: #0046ad;
+            --black-text: #1a1a1a;
+        }
+        body { 
+            background-color: #ffffff; 
+            color: var(--black-text); 
+            font-family: 'Poppins', sans-serif; 
+        }
+        h1, h2, h3, h4 { 
+            font-family: 'Playfair Display', serif; 
+            letter-spacing: 1px;
+        }
+        .page-section { display: none; min-height: 80vh; padding-top: 120px; }
+        .page-section.active { display: block; animation: fadeIn 0.5s ease; }
+        .tab-content { display: none; }
+        .tab-content.active { display: block; animation: slideUp 0.4s ease; }
+        
+        /* Navegación Centrada */
+        .nav-link { 
+            transition: 0.3s; 
+            border-bottom: 2px solid transparent; 
+            color: #666;
+        }
+        .nav-link.active { 
+            color: var(--blue-main); 
+            border-bottom: 2px solid var(--blue-main); 
+        }
+        .service-btn.active { 
+            background-color: var(--blue-main); 
+            color: white; 
+            box-shadow: 0 4px 15px rgba(0, 70, 173, 0.3);
+        }
+        @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+        @keyframes slideUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+    </style>
+</head>
+<body>
+
+    <header class="fixed w-full z-50 bg-white shadow-sm border-b border-gray-100">
+        <div class="max-w-7xl mx-auto px-6 py-4 flex flex-col items-center">
+            <h1 class="text-3xl md:text-4xl font-black text-black mb-4">
+                PHYSIO<span class="text-[#0046ad]">TRAIN</span>
+            </h1>
+            <nav class="flex space-x-8 text-[11px] uppercase font-bold tracking-[2px]">
+                <button onclick="showPage('inicio')" class="nav-link active pb-1">Inicio</button>
+                <button onclick="showPage('servicios')" class="nav-link pb-1">Servicios</button>
+                <button onclick="showPage('tienda')" class="nav-link pb-1">Creatina</button>
+            </nav>
+        </div>
+    </header>
+
+    <section id="inicio" class="page-section active px-6">
+        <div class="max-w-5xl mx-auto">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl md:text-5xl mb-2">Nuestro Equipo <span class="text-[#0046ad]">Profesional</span></h2>
+                <div class="h-1 w-20 bg-[#0046ad] mx-auto"></div>
+            </div>
+            
+            <div class="grid md:grid-cols-2 gap-12">
+                <div class="bg-gray-50 p-10 rounded-xl border border-gray-100 text-center shadow-sm">
+                    <div class="w-28 h-28 bg-white rounded-full mx-auto mb-6 border-4 border-[#0046ad] flex items-center justify-center text-3xl text-[#0046ad]">
+                        <i class="fas fa-user-md"></i>
+                    </div>
+                    <h3 class="text-2xl mb-2 uppercase">Tu Nombre</h3>
+                    <p class="text-[#0046ad] font-bold text-xs uppercase mb-4 tracking-widest italic">Fisioterapeuta & Kinesiólogo</p>
+                    <p class="text-gray-600 text-sm leading-relaxed">Experto en el diagnóstico clínico y la recuperación funcional. Mi meta es devolverte la movilidad óptima a través de planes de entrenamiento basados en medicina deportiva.</p>
+                </div>
+
+                <div class="bg-gray-50 p-10 rounded-xl border border-gray-100 text-center shadow-sm">
+                    <div class="w-28 h-28 bg-white rounded-full mx-auto mb-6 border-4 border-gray-800 flex items-center justify-center text-3xl text-gray-800">
+                        <i class="fas fa-dumbbell"></i>
+                    </div>
+                    <h3 class="text-2xl mb-2 uppercase">Nombre Compañero</h3>
+                    <p class="text-gray-500 font-bold text-xs uppercase mb-4 tracking-widest italic">Coach de Entrenamiento & Nutrición</p>
+                    <p class="text-gray-600 text-sm leading-relaxed">Especialista en desarrollo de fuerza y composición corporal. Responsable del área de suplementación y guía nutricional para el alto rendimiento.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="servicios" class="page-section px-6">
+        <div class="max-w-6xl mx-auto">
+            <h3 class="text-3xl md:text-4xl text-center mb-10 italic uppercase">Servicios & <span class="text-[#0046ad]">Asesoramiento</span></h3>
+            
+            <div class="flex flex-wrap justify-center gap-3 mb-16">
+                <button onclick="showTab('salud')" class="service-btn active px-8 py-3 border border-gray-200 text-[10px] font-bold uppercase rounded-full transition">Salud Integral</button>
+                <button onclick="showTab('pliometria')" class="service-btn px-8 py-3 border border-gray-200 text-[10px] font-bold uppercase rounded-full transition">Pliometría</button>
+                <button onclick="showTab('musculacion')" class="service-btn px-8 py-3 border border-gray-200 text-[10px] font-bold uppercase rounded-full transition">Musculación</button>
+                <button onclick="showTab('rehabilitacion')" class="service-btn px-8 py-3 border border-gray-200 text-[10px] font-bold uppercase rounded-full transition">Rehabilitación</button>
+            </div>
+
+            <div id="salud" class="tab-content active bg-white p-8 md:p-12 rounded-2xl border border-gray-100 shadow-xl">
+                <div class="grid md:grid-cols-2 gap-10 items-center">
+                    <img src="https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?w=600" class="rounded-xl shadow-lg border-4 border-white" alt="Salud">
+                    <div>
+                        <h4 class="text-3xl mb-4 text-[#0046ad] italic">Salud Multigeneracional</h4>
+                        <p class="text-gray-600 text-sm leading-loose">Entendemos la salud como un proceso continuo. Desde el desarrollo motor en <b>jóvenes</b>, la optimización física en <b>adultos</b>, hasta la preservación de la autonomía y fuerza en la <b>tercera edad</b>. Nuestros planes se adaptan a tu biología actual para garantizar longevidad y bienestar real.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div id="pliometria" class="tab-content bg-white p-8 md:p-12 rounded-2xl border border-gray-100 shadow-xl">
+                <div class="grid md:grid-cols-2 gap-10 items-center">
+                    <img src="https://images.unsplash.com/photo-1517836357463-d25dfeac3438?w=600" class="rounded-xl shadow-lg border-4 border-white" alt="Pliometría">
+                    <div>
+                        <h4 class="text-3xl mb-4 text-[#0046ad] italic">Potencia & Pliometría</h4>
+                        <p class="text-gray-600 text-sm leading-loose">Diseñado para deportistas que buscan explotar su potencial atlético. Trabajamos la reactividad, el salto y la velocidad con protocolos de seguridad clínica para evitar lesiones por impacto.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div id="musculacion" class="tab-content bg-white p-8 md:p-12 rounded-2xl border border-gray-100 shadow-xl">
+                <div class="grid md:grid-cols-2 gap-10 items-center">
+                    <img src="https://images.unsplash.com/photo-1534438327276-14e5300c3a48?w=600" class="rounded-xl shadow-lg border-4 border-white" alt="Musculación">
+                    <div>
+                        <h4 class="text-3xl mb-4 text-[#0046ad] italic">Hipertrofia Científica</h4>
+                        <p class="text-gray-600 text-sm leading-loose">Ganancia de masa muscular con técnica impecable. Aplicamos la kinesiología para que cada repetición cuente, optimizando la estética sin comprometer tus articulaciones.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div id="rehabilitacion" class="tab-content bg-white p-8 md:p-12 rounded-2xl border border-gray-100 shadow-xl">
+                <div class="grid md:grid-cols-2 gap-10 items-center">
+                    <img src="https://images.unsplash.com/photo-1576091160550-2173dba999ef?w=600" class="rounded-xl shadow-lg border-4 border-white" alt="Rehabilitación">
+                    <div>
+                        <h4 class="text-3xl mb-4 text-[#0046ad] italic">Rehabilitación Clínica</h4>
+                        <p class="text-gray-600 text-sm leading-loose">Tu puente de vuelta al entrenamiento. Especialistas en readaptación deportiva post-lesión, garantizando una recuperación total y segura.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="tienda" class="page-section px-6">
+        <div class="max-w-4xl mx-auto text-center bg-gray-50 p-16 rounded-3xl border border-gray-100 shadow-sm">
+            <h3 class="text-4xl italic mb-6 uppercase">Suplementación <span class="text-[#0046ad]">Premium</span></h3>
+            <div class="mb-10 text-[#0046ad] text-6xl"><i class="fas fa-capsules"></i></div>
+            <h4 class="text-2xl font-bold mb-4">CREATINA PURE MONOHYDRATE</h4>
+            <p class="text-gray-600 max-w-lg mx-auto mb-10 text-sm leading-relaxed">
+                El complemento perfecto para nuestros planes. Máxima pureza para potenciar tu fuerza y recuperación, recomendada por nuestro equipo de expertos.
+            </p>
+            <a href="https://wa.me/TUNUMERO?text=Hola%20quiero%20informacion%20sobre%20la%20creatina" class="bg-black text-white px-12 py-4 rounded-full font-bold uppercase text-[10px] tracking-widest hover:bg-[#0046ad] transition">
+                Consultar Disponibilidad
+            </a>
+        </div>
+    </section>
+
+    <footer class="py-12 bg-white text-center mt-20 border-t border-gray-100">
+        <div class="flex justify-center space-x-10 mb-6 text-gray-400">
+            <a href="#" class="hover:text-[#0046ad] transition text-2xl"><i class="fab fa-instagram"></i></a>
+            <a href="https://wa.me/TUNUMERO" class="hover:text-[#0046ad] transition text-2xl"><i class="fab fa-whatsapp"></i></a>
+        </div>
+        <p class="text-[9px] text-gray-400 tracking-[4px] uppercase italic">PhysioTrain &copy; 2026 | Ciencia & Salud</p>
+    </footer>
+
+    <script>
+        // Función para cambiar PÁGINAS principales
+        function showPage(pageId) {
+            document.querySelectorAll('.page-section').forEach(p => p.classList.remove('active'));
+            document.querySelectorAll('.nav-link').forEach(l => l.classList.remove('active'));
+            document.getElementById(pageId).classList.add('active');
+            event.currentTarget.classList.add('active');
+            window.scrollTo(0,0);
+        }
+
+        // Función para cambiar APARTADOS de servicios
+        function showTab(tabId) {
+            document.querySelectorAll('.tab-content').forEach(t => t.classList.remove('active'));
+            document.querySelectorAll('.service-btn').forEach(b => b.classList.remove('active'));
+            document.getElementById(tabId).classList.add('active');
+            event.currentTarget.classList.add('active');
+        }
+    </script>
+</body>
+</html>
